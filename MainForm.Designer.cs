@@ -35,13 +35,15 @@
             // timer
             // 
             timer.Enabled = true;
-            timer.Interval = 1000;
+            timer.Interval = 140;
             timer.Tick += timer_Tick;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.cherry;
+            BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(800, 450);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;

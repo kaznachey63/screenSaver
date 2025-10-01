@@ -1,40 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace screenSaver
+﻿namespace screenSaver
 {
     public partial class MainForm : Form
     {
+        private Core? core{ get; set; }
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            core = new Core(25);
+            timer.Start();
         }
 
-        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-
+            core?.offsetSnowflake();
+            Invalidate();
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
+            core?.showSnoflakes(e);
+        }
 
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            timer.Stop();
+            Close();
         }
     }
 }
