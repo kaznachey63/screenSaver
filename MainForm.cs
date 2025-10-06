@@ -2,28 +2,28 @@
 {
     public partial class MainForm : Form
     {
-        private Core? core{ get; set; }
+        private Core core{ get; set; }
 
         public MainForm()
         {
             InitializeComponent();
+            core = new Core(25);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            core = new Core(25);
             timer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            core?.offsetSnowflake();
+            core.OffsetSnowflake();
             Invalidate();
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            core?.showSnoflakes(e);
+            core.ShowSnoflakes(e);
         }
 
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)

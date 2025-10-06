@@ -14,14 +14,14 @@
         /// <param name="MainForm">Главная форма</param>
         public Core(int givenAmount)
         {
-            generateSnowflakes(givenAmount);
+            GenerateSnowflakes(givenAmount);
         }
 
         /// <summary>
         /// Генерация снежинок
         /// </summary>
         /// <param name="amount">Количество снежинок</param>
-        private void generateSnowflakes(int amount)
+        private void GenerateSnowflakes(int amount)
         {
             Image snowflakeImg = Properties.Resources.snowflake;
 
@@ -48,8 +48,8 @@
         /// <summary>
         /// Отображение снежинок
         /// </summary>
-        /// <param name="e"></param>
-        public void showSnoflakes(PaintEventArgs e)
+        /// <param name="e">Событие отрисовки</param>
+        public void ShowSnoflakes(PaintEventArgs e)
         {
             foreach (var snowflake in snowflakes)
             {
@@ -63,12 +63,11 @@
         /// <summary>
         /// Смещение снежинки
         /// </summary>        
-        public void offsetSnowflake()
+        public void OffsetSnowflake()
         {
             foreach (var snowflake in snowflakes)
             {
                 int DX = snowflake.X;
-
                 int newDY = snowflake.Y + snowflake.Speed;
 
                 if (newDY > screenHeight)

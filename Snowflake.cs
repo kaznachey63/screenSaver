@@ -5,7 +5,7 @@
         /// <summary>
         /// Картинка снежинки
         /// </summary>
-        public Image? Image { get; set; }
+        public Image Image { get; set; } = default!;
 
         /// <summary>
         /// Скорость падения снежинки в пикселях
